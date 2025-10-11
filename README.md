@@ -1,2 +1,1 @@
 # sysadmin
-sysadmin scripts
