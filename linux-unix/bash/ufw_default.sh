@@ -26,11 +26,18 @@ if ! command -v ufw >/dev/null 2>&1; then
 # Try to get package manager and install ufw
     if ! command -v apt >/dev/null 2>&1; then
         apt update -qq
+        apt upgrade -y
         apt install -y -qq ufw
     elif ! command -v dnf >/dev/null 2>&1; then
+        dnf update -y
+        dnf upgrade -y
         dnf install -y -q ufw
     elif ! command -v yum >/dev/null 2>&1; then
+        yum update -y
         yum install -y -q ufw
+    elif ! command -v pacman >/dev/null 2>&1; then
+        pacman -Syu --noconfirm
+        pacman -S ufw --noconfirm
     else
         echo "[Error] Unable to determine package manager,try installing manually." >&2
         exit 1
