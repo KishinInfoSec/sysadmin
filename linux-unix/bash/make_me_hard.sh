@@ -1,4 +1,18 @@
 #!/bin/bash/
+#  DISCLAIMER & NOTICE
+# ------------------------------------------------------------
+# 2025 - Author: Alex Pack aka KishinInfosec
+#
+# This script is provided “as‑is” without any warranty of any kind,
+# either expressed or implied.  The author makes no guarantees
+# regarding its suitability for a particular purpose, its correctness,
+# or its security.  Use it at your own risk.
+#
+# By using this script you agree to assume any and all responsibility for any
+# damage, data loss, or legal consequences that may arise.
+# 
+
+# I wrote this "script" with auto complete enabled, not a very pretty example.
 Ciphers='chacha20-poly1305@openssh.com,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr'
 KexAlgorithms='curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256'
 Macs='hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-512,hmac-sha2-256,umac-128@openssh.com'
