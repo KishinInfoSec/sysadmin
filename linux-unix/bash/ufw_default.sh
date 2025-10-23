@@ -22,22 +22,23 @@ fi
 echo "[Info] Checking if ufw is already installed."
 # Install ufw if not already present
 if ! command -v ufw >/dev/null 2>&1; then 
-    echo "[Info] Ufw is not currently installed. Installing..."
-# Try to get package manager and install ufw
-    if ! command -v apt >/dev/null 2>&1; then
+    echo "[Info] Ufw is not currently installed, doing a system update before installation."
+# Try to get package manager, do system update, and install ufw
+    if command -v apt >/dev/null 2>&1; then
         apt update -qq
         apt upgrade -y
         apt install -y -qq ufw
-    elif ! command -v dnf >/dev/null 2>&1; then
+    elif command -v dnf >/dev/null 2>&1; then
         dnf update -y
         dnf upgrade -y
         dnf install -y -q ufw
-    elif ! command -v yum >/dev/null 2>&1; then
+    elif command -v yum >/dev/null 2>&1; then
         yum update -y
         yum install -y -q ufw
-    elif ! command -v pacman >/dev/null 2>&1; then
+    elif command -v pacman >/dev/null 2>&1; then
         pacman -Syu --noconfirm
         pacman -S ufw --noconfirm
+    # Copy above format and add other package managers here if you need.
     else
         echo "[Error] Unable to determine package manager,try installing manually." >&2
         exit 1
@@ -55,9 +56,9 @@ ufw default allow outgoing
 
 # Allow SSH (default port 22 change if needed)
 # Warning: By default this allows ipv4 and ipv6 at the firewall.
+echo "[Info] Enabling SSH."
 ufw allow ssh
 # Enable the firewall
 ufw --force enable
 ufw --force reload
-
-echo "Ufw configured, please make sure to update your rules!"
+echo "Done."

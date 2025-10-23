@@ -1,0 +1,84 @@
+# Generic
+*.log
+*.tmp
+*.swp
+*~
+*.bak
+*.old
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+# Editor / IDE
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+# Dev container local overrides
+.devcontainer/*.local.*
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+.Python
+env/
+venv/
+.venv/
+pip-wheel-metadata/
+htmlcov/
+.coverage
+.cache/
+.pytest_cache/
+.mypy_cache/
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-lock.yaml
+# Build / packaging
+build/
+dist/
+target/
+out/
+*.egg-info/
+*.egg
+*.whl
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+override.tfvars
+override.tfvars.json
+*.tfvars
+# Docker / Containers
+docker-compose.override.yml
+.env
+.env.local
+.docker/
+# Git / VCS
+*.orig
+*.rej
+# Secrets / keys / certificates
+*.pem
+*.key
+*.p12
+*.jks
+secrets.*
+credentials.*
+# System / shell
+*.pid
+*.sock
+*.pid.lock
+.bash_history
+.zsh_history
+# Misc archives / caches
+*.zip
+*.tar.gz
+*.rar
+.cache/
+# Optional: hide workspace-specific files
+#/workspace/
